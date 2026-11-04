@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import { profile } from "../data/profile";
+---
+
+<section id="sobre-mi" class="scroll-mt-24 border-b border-line">
+  <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-20">
+    <div class="relative mx-auto w-full max-w-sm">
+      <div aria-hidden="true" class="absolute -bottom-3 -right-3 h-full w-full rounded-lg border-2 border-accent"></div>
+      <Image
+        src={profile.photo}
+        alt="Foto de Sinuhe Alvarez, representada con un placeholder de iniciales"
+        width={640}
+        height={800}
+        loading="lazy"
+        class="relative aspect-[4/5] w-full rounded-lg border border-line bg-surface object-cover"
+      />
+    </div>
+    <div>
+      <h2 class="text-3xl font-semibold sm:text-4xl">Sobre mí</h2>
+      <p class="mt-6 text-base leading-7 text-fg-soft">
+        {profile.bio.map((part) =>
+          part.highlight ? (
+            <strong class="font-semibold text-accent-text">{part.text}</strong>
+          ) : (
+            part.text
+          ),
+        )}
+      </p>
+    </div>
+  </div>
+</section>

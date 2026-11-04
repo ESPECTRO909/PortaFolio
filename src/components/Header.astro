@@ -1,0 +1,53 @@
+---
+import ThemeToggle from "./ThemeToggle";
+
+const links = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#contacto", label: "Contacto" },
+];
+---
+
+<header class="sticky top-0 z-30 border-b border-line bg-page/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
+    <a href="#inicio" class="flex min-w-0 items-center gap-3 text-fg" aria-label="Sinuhe Alvarez, inicio">
+      <span class="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-accent-text text-sm font-bold text-accent-text">SA</span>
+      <span class="truncate text-sm font-semibold sm:text-base">Sinuhe Alvarez</span>
+    </a>
+
+    <div class="flex shrink-0 items-center gap-2 sm:gap-4">
+      <nav aria-label="Navegación principal" class="hidden items-center gap-6 lg:flex">
+        {links.map((link) => (
+          <a class="text-sm text-fg-soft transition-colors hover:text-accent-text" href={link.href}>
+            {link.label}
+          </a>
+        ))}
+      </nav>
+      <ThemeToggle client:load />
+      <details class="relative lg:hidden">
+        <summary class="grid h-10 w-10 cursor-pointer list-none place-items-center rounded border border-line text-fg transition-colors hover:border-accent-text hover:text-accent-text [&::-webkit-details-marker]:hidden">
+          <span class="sr-only">Abrir menú</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </summary>
+        <nav aria-label="Navegación móvil" class="absolute right-0 top-12 grid w-52 gap-1 border border-line bg-surface p-2 shadow-lg">
+          {links.map((link) => (
+            <a class="px-3 py-2 text-sm text-fg-soft hover:bg-page hover:text-accent-text" href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.querySelectorAll("details nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      link.closest("details")?.removeAttribute("open");
+    });
+  });
+</script>

@@ -1,0 +1,52 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  index: number;
+}
+
+const { project, index } = Astro.props;
+const hasRepoUrl = project.repoUrl.startsWith("https://") && !project.repoUrl.includes("TODO") && !project.repoUrl.includes("<");
+---
+
+<article class="flex h-full flex-col rounded-lg border border-line bg-surface p-5 transition-colors hover:border-accent sm:p-7">
+  <div class="flex items-start justify-between gap-4">
+    <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-text">Proyecto 0{index + 1}</p>
+    <span class="rounded-md border border-line px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-fg-soft">Backend</span>
+  </div>
+  {project.image && <img src={project.image} alt="" loading="lazy" class="mt-5 aspect-video w-full object-cover" />}
+  <h3 class="mt-5 text-xl font-semibold leading-snug sm:text-2xl">{project.title}</h3>
+  <p class="mt-3 text-sm leading-6 text-fg-soft">{project.description}</p>
+
+  {project.highlights && (
+    <ul class="mt-5 space-y-2 border-l border-line pl-4">
+      {project.highlights.map((highlight) => <li class="text-xs leading-5 text-fg-soft">{highlight}</li>)}
+    </ul>
+  )}
+
+  <ul class="mt-6 flex flex-wrap gap-2" aria-label="Tecnologías">
+    {project.tags.map((tag) => <li class="rounded-md border border-line px-2 py-1 text-[11px] text-fg">{tag}</li>)}
+  </ul>
+
+  <div class="mt-auto flex flex-wrap gap-3 pt-7">
+    {hasRepoUrl ? (
+      <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-accent px-4 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover hover:text-on-accent-hover">
+        Código
+        <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.5 3.5h5v5m-.5-4.5-7 7" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.5v4A1.5 1.5 0 0 1 13.5 17h-9A1.5 1.5 0 0 1 3 15.5v-9A1.5 1.5 0 0 1 4.5 5H9" />
+        </svg>
+      </a>
+    ) : (
+      <button type="button" disabled title="Agrega la URL real del repositorio en projects.ts" class="inline-flex min-h-10 cursor-not-allowed items-center justify-center rounded-md border border-line px-4 text-sm font-semibold text-fg-soft opacity-70">
+        Código · TODO
+      </button>
+    )}
+    {project.demoUrl && (
+      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-10 items-center justify-center rounded-md border border-line px-4 text-sm font-semibold text-fg transition-colors hover:border-accent-text hover:text-accent-text">
+        Demo
+      </a>
+    )}
+  </div>
+</article>

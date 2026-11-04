@@ -1,0 +1,32 @@
+---
+import { profile } from "../data/profile";
+---
+
+<section id="inicio" class="scroll-mt-24 border-b border-line">
+  <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28 lg:py-32">
+    <div>
+      <p class="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-text">
+        <span class="h-px w-8 bg-accent"></span>
+        Backend · Java · Spring Boot
+      </p>
+      <h1 class="max-w-3xl text-4xl font-semibold leading-[1.08] sm:text-6xl">
+        Construyo sistemas y <span class="text-accent-text">soluciones a la medida</span> de cada cliente.
+      </h1>
+      <p class="mt-6 max-w-xl text-base leading-7 text-fg-soft sm:text-lg">
+        {profile.name}, {profile.role}. Diseño APIs, aplicaciones empresariales y servicios seguros con foco en Java y Spring Boot.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#proyectos" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover hover:text-on-accent-hover">
+          Ver proyectos
+          <svg aria-hidden="true" viewBox="0 0 20 20" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.5 10h13m-5-5 5 5-5 5" />
+          </svg>
+        </a>
+        <a href="#contacto" class="inline-flex min-h-12 items-center justify-center rounded-md border border-line px-5 text-sm font-semibold text-fg transition-colors hover:border-accent-text hover:text-accent-text">
+          Contacto
+        </a>
+      </div>
+      <p class="mt-8 text-sm text-fg-soft">Ubicación: <span class="text-fg">{profile.location}</span></p>
+    </div>
+  </div>
+</section>

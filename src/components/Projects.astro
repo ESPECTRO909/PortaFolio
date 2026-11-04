@@ -1,0 +1,19 @@
+---
+import { projects } from "../data/projects";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section id="proyectos" class="scroll-mt-24 border-b border-line">
+  <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+    <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-text">03 / Proyectos</p>
+        <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Un caso de estudio.</h2>
+      </div>
+      <p class="max-w-sm text-sm leading-6 text-fg-soft">Proyectos donde la lógica, los datos y la seguridad sostienen la experiencia.</p>
+    </div>
+    <div class="mt-10 grid gap-5 lg:grid-cols-2">
+      {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+@import "devicon/devicon.min.css";
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+	color-scheme: light;
+	--page: #ecedef;
+	--surface: #f6f7f8;
+	--line: #d5d7db;
+	--fg: #2b2d31;
+	--fg-soft: #5b5f66;
+	--accent: #ff6347;
+	--accent-text: #c2321b;
+	--on-accent: #2b2d31;
+	--accent-hover: #c2321b;
+	--on-accent-hover: #ffffff;
+}
+
+.dark {
+	color-scheme: dark;
+	--page: #1f2124;
+	--surface: #2b2d31;
+	--line: #3c4046;
+	--fg: #ecedef;
+	--fg-soft: #a3a7ae;
+	--accent: #ff6347;
+	--accent-text: #ff6347;
+	--on-accent: #2b2d31;
+	--accent-hover: #ff7a63;
+	--on-accent-hover: #2b2d31;
+}
+
+@theme inline {
+	--color-page: var(--page);
+	--color-surface: var(--surface);
+	--color-line: var(--line);
+	--color-fg: var(--fg);
+	--color-fg-soft: var(--fg-soft);
+	--color-accent: var(--accent);
+	--color-accent-text: var(--accent-text);
+	--color-on-accent: var(--on-accent);
+	--color-accent-hover: var(--accent-hover);
+	--color-on-accent-hover: var(--on-accent-hover);
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 6rem;
+}
+
+body {
+	min-width: 320px;
+}
+
+::selection {
+	color: var(--on-accent);
+	background: var(--accent);
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+}
