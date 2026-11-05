@@ -1,5 +1,6 @@
 export interface Project {
   title: string;
+  category: string;
   description: string;
   highlights?: string[];
   tags: string[];
@@ -11,6 +12,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "SUD · Sistema Universitario de Denuncias",
+    category: "Backend",
     description:
       "Plataforma web de la UMSNH que centraliza y da seguimiento seguro a denuncias de violencia, acoso o discriminación mediante folios únicos.",
     highlights: [
@@ -30,5 +32,43 @@ export const projects: Project[] = [
       "MySQL",
     ],
     repoUrl: "TODO: https://github.com/<usuario>/<repo>",
+  },
+  {
+    title: "Spring Boot JWT Auth Boilerplate",
+    category: "Backend",
+    description:
+      "Plantilla base para crear APIs REST seguras, con autenticación JWT, gestión de usuarios y control de acceso por roles.",
+    highlights: [
+      "Registro e inicio de sesión con autenticación sin estado mediante JWT",
+      "Control de acceso basado en roles ADMIN y USER",
+      "Manejo global de excepciones y separación por capas: controladores, servicios, repositorios y DTOs",
+    ],
+    tags: [
+      "Java 17",
+      "Spring Boot 3",
+      "Spring Security",
+      "JWT",
+      "Spring Data JPA",
+      "Hibernate",
+      "MySQL",
+      "PostgreSQL",
+    ],
+    repoUrl: "https://github.com/ESPECTRO909/spring-boot-jwt-boilerplate",
+  },
+];
+
+export const clientProjects: Project[] = [
+  {
+    title: "Hotel El Eden",
+    category: "Frontend",
+    description:
+      "Sitio informativo bilingüe en español e inglés. El formulario prepara una solicitud de reserva por WhatsApp; el huésped debe enviarla y el hotel confirmar la reservación.",
+    highlights: [
+      "Sitio estático desarrollado con Astro 7, React y Tailwind CSS",
+      "Solicitud de reservación enviada por WhatsApp, sin confirmación automática",
+    ],
+    tags: ["Astro 7", "React", "Tailwind CSS", "Español / Inglés", "WhatsApp"],
+    repoUrl: "https://github.com/ESPECTRO909/Hotel_Eden",
+    demoUrl: "https://hotel-eden-six.vercel.app/",
   },
 ];

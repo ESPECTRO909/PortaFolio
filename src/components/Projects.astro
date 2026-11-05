@@ -1,5 +1,5 @@
 ---
-import { projects } from "../data/projects";
+import { clientProjects, projects } from "../data/projects";
 import ProjectCard from "./ProjectCard.astro";
 ---
 
@@ -11,8 +11,20 @@ import ProjectCard from "./ProjectCard.astro";
         <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Proyectos personales.</h2>
       </div>
     </div>
-    <div class="mt-10 grid gap-5 lg:grid-cols-2">
+    <div class="mt-10 grid auto-cols-[minmax(0,84%)] grid-flow-col gap-5 overflow-x-auto pb-5 snap-x snap-mandatory sm:auto-cols-[minmax(0,48%)] lg:auto-cols-[minmax(0,40%)]" role="region" aria-label="Carrusel de proyectos personales" tabindex="0">
       {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+
+    <div class="mt-16 border-t border-line pt-12">
+      <p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-text">04 / Trabajo con clientes</p>
+      <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Proyectos de clientes.</h2>
+      {clientProjects.length > 0 ? (
+        <div class="mt-10 grid auto-cols-[minmax(0,84%)] grid-flow-col gap-5 overflow-x-auto pb-5 snap-x snap-mandatory sm:auto-cols-[minmax(0,48%)] lg:auto-cols-[minmax(0,40%)]" role="region" aria-label="Carrusel de proyectos de clientes" tabindex="0">
+          {clientProjects.map((project, index) => <ProjectCard project={project} index={index} />)}
+        </div>
+      ) : (
+        <p class="mt-5 max-w-xl text-sm leading-6 text-fg-soft">Los proyectos realizados para clientes aparecerán aquí.</p>
+      )}
     </div>
   </div>
 </section>

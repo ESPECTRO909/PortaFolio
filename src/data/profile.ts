@@ -101,8 +101,8 @@ export const technologyGroups = [
 
 export const services = [
   "Soluciones de software robustas y eficientes",
-  "Arquitecturas de microservicios y persistencia políglota",
   "Aplicaciones empresariales",
+  "Desarrollo de software a medida para negocios",
   "Diseño y consumo de APIs RESTful",
   "Seguridad en aplicaciones",
 ];
