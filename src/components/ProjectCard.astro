@@ -10,7 +10,7 @@ const { project, index } = Astro.props;
 const hasRepoUrl = project.repoUrl.startsWith("https://") && !project.repoUrl.includes("TODO") && !project.repoUrl.includes("<");
 ---
 
-<article class="flex h-full snap-start flex-col rounded-lg border border-line bg-surface p-5 transition-colors hover:border-accent sm:p-7">
+<article class="flex h-full w-full min-w-0 snap-start flex-col rounded-lg border border-line bg-surface p-5 transition-colors hover:border-accent sm:p-7">
   <div class="flex items-start justify-between gap-4">
     <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-text">Proyecto 0{index + 1}</p>
     <span class="rounded-md border border-line px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-fg-soft">{project.category}</span>
