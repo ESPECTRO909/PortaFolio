@@ -71,4 +71,18 @@ export const clientProjects: Project[] = [
     repoUrl: "https://github.com/ESPECTRO909/Hotel_Eden",
     demoUrl: "https://hotel-eden-six.vercel.app/",
   },
+
+  {
+    title: "Dolled Up",
+    category: "Frontend",
+    description:
+      "Tienda estática de maquillaje construida con Astro e islas interactivas de React. El catálogo vive en src/products/, los filtros de categorías en src/data/categories.ts, los datos generales en src/data/ y el carrito se mantiene en el navegador. Los pedidos se preparan localmente y se abren en WhatsApp; no hay backend ni cobros.",
+    highlights: [
+      "Desarrollo con Astro, React y Tailwind CSS",
+      "Integración de carrito de compras y proceso de pago mediante WhatsApp",
+    ],
+    tags: ["Astro 7", "React", "Tailwind CSS", "E-commerce", "WhatsApp"],
+    repoUrl: "https://github.com/ESPECTRO909/E-Commerce-Dolled-Up",
+    demoUrl: "https://e-commerce-dolled-up.vercel.app/",
+  }
 ];
